@@ -1,0 +1,9 @@
+{"gamescreen": {"level": 400,
+                        "question": "Where is the fictional town of Westview located in the WandaVision series",
+                        "words": ["wordbox_w.png", "wordbox_k.png", "wordbox_r.png", "wordbox_f.png", "wordbox_y.png",
+                                  "wordbox_e.png", "wordbox_k.png", "wordbox_f.png", "wordbox_j.png", "wordbox_l.png",
+                                  "wordbox_p.png", "wordbox_t.png", "wordbox_n.png", "wordbox_s.png", "wordbox_o.png",
+                                  "wordbox_e.png", "wordbox_t.png", "wordbox_e.png"], "levelcounter": "1/200",
+                        "vacentbox": ["bor.png", "bor.png", "bor.png", "bor.png", "bor.png", "bor.png", "bor.png",
+                                      "bor.png", "bor.png", "mix.png", "mix.png", "mix.png", "mix.png", "mix.png",
+                                      "mix.png"]}}

@@ -1,0 +1,942 @@
+#home page
+
+<level_button@Button>:
+    size_hint:None,None
+    width:dp(300)
+    height:dp(150)
+
+
+<home>:
+    FloatLayout:
+        canvas.before:
+
+
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"back.png"
+
+
+
+
+        Image:
+            source:"ll.png"
+            size_hint:None,None
+            width:dp(130)
+            height:dp(150)
+            pos_hint:{"center_x":.5,"center_y":.7}
+
+
+
+        Label:
+            id:player_name
+            on_ref_press:root.changing()
+
+
+
+            canvas.before:
+                Color:
+                    rgb:(1,1,1)
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+
+            pos_hint:{"left":.07,"top":1}
+            color:"black"
+            size_hint:None,None
+            width:dp(130)
+            height:dp(40)
+            font_size:'20sp'
+            bold:True
+        Label:
+            canvas.before:
+                Color:
+                    rgb:(1,1,1)
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+            id:iqlogic
+
+            pos_hint:{"right":1,"top":1}
+            color:"black"
+            size_hint:None,None
+            width:dp(130)
+            height:dp(40)
+            font_size:'20sp'
+            bold:True
+
+
+
+
+
+
+        Button:
+
+            size_hint:None,None
+            background_normal:""
+            width:dp(160)
+            height:dp(45)
+            background_color:(7/255, 248/255, 242/255)
+
+
+
+            pos_hint:{"center_x":.5,"center_y":.43}
+
+            on_press:
+                root.manager.current = "level"
+                root.button()
+
+
+                root.manager.transition.direction = "left"
+                root.manager.transition.duration = .6
+            Image:
+
+                source:"playf.png"
+
+
+
+                size_hint:None,None
+                width:dp(150)
+                height:dp(70)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+
+
+        Button:
+            text:"Settings"
+            size_hint:None,None
+            width:dp(160)
+            height:dp(45)
+            font_size:'20sp'
+            background_normal:""
+
+            background_color:(7/255, 248/255, 242/255)
+            pos_hint:{"center_x":.5,"center_y":.31}
+            Image:
+
+                source:"set.png"
+
+
+
+                size_hint:None,None
+                height:dp(70)
+                width:dp(150)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+<level>:
+    FloatLayout:
+        canvas.before:
+
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"back.png"
+
+
+        Label:
+            text:"Test Your CIQ"
+            font_size:'25sp'
+
+            pos_hint:{"center_x":.5,"center_y":.9}
+
+
+        level_button:
+
+            pos_hint:{"center_x":.5,"center_y":.6}
+            on_press:
+                root.manager.current = "marvel"
+                root.manager.transition.direction = "down"
+
+
+            Image:
+
+                source:"marvel.png"
+
+                size_hint:None,None
+                height:dp(150)
+                width:dp(300)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        level_button:
+            id:comming
+            pos_hint:{"center_x":.5,"center_y":.3}
+            on_release:root.pop()
+            on_press:
+                root.commingsoon()
+                #root.manager.current = "dc"
+                #root.manager.transition.direction = "up"
+
+            Image:
+                id:dcimg
+
+                source:"dc.png"
+
+
+
+                size_hint:None,None
+                height:dp(150)
+                width:dp(300)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        Button:
+
+            size_hint:None,None
+            width:dp(20)
+            height:dp(20)
+            background_down:""
+            background_color:9/255, 200/255, 175/255,.4
+            background_normal:""
+
+            pos_hint:{"center_x":.08,"center_y":.96}
+            on_press:
+                root.manager.current = "home"
+                root.manager.transition.direction = "right"
+
+            Image:
+
+                source:"bk.png"
+
+
+
+                size_hint:None,None
+                height:dp(70)
+                width:dp(70)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+<marvel>:
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"back.png"
+        Button:
+
+
+            size_hint:None,None
+            width:dp(270)
+            height:dp(100)
+
+            pos_hint:{"center_x":.5,"center_y":.8}
+            on_press:
+                root.manager.current = "game"
+                root.manager.transition.direction = "down"
+                root.fr()
+            Image:
+
+                source:"ph1.png"
+
+                size_hint:None,None
+                height:dp(100)
+                width:dp(280)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        Button:
+
+            size_hint:None,None
+            width:dp(270)
+            height:dp(100)
+
+            pos_hint:{"center_x":.5,"center_y":.6}
+            on_press:
+                root.manager.current = "phase2"
+                root.manager.transition.direction = "down"
+            Image:
+
+                source:"phase2.png"
+
+                size_hint:None,None
+                height:dp(100)
+                width:dp(280)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        Button:
+
+            size_hint:None,None
+            width:dp(270)
+            height:dp(100)
+
+            pos_hint:{"center_x":.5,"center_y":.4}
+            on_press:
+                root.manager.current = "phase3"
+                root.manager.transition.direction = "up"
+            Image:
+
+                source:"ph3.png"
+
+                size_hint:None,None
+                height:dp(100)
+                width:dp(280)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        Button:
+
+            size_hint:None,None
+            width:dp(270)
+            height:dp(100)
+
+            pos_hint:{"center_x":.5,"center_y":.2}
+            on_press:
+                root.manager.current = "phase4"
+                root.manager.transition.direction = "up"
+            Image:
+
+                source:"ph4.png"
+
+                size_hint:None,None
+                height:dp(100)
+                width:dp(280)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        Button:
+
+            size_hint:None,None
+            width:dp(20)
+            height:dp(20)
+            background_down:""
+            background_color:9/255, 200/255, 175/255,.4
+            background_normal:""
+
+            pos_hint:{"center_x":.08,"center_y":.96}
+            on_press:
+                root.manager.current = "level"
+                root.manager.transition.direction = "right"
+
+            Image:
+
+                source:"bk.png"
+
+
+
+                size_hint:None,None
+                height:dp(70)
+                width:dp(70)
+
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+
+
+<dc>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba:.6,.3,.9,.6
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        GridLayout:
+            padding:30
+            spacing:30
+            cols:2
+            rows:2
+            Button:
+                size_hint:.3,.2
+                text:"Super Man"
+                font_size:25
+                background_color:"black"
+
+
+            Button:
+                size_hint:.3,.2
+                text:"Batman"
+                font_size:50
+                background_color:"black"
+            Button:
+                size_hint:.3,.2
+                text:"Joker"
+                font_size:50
+                background_color:"black"
+            Button:
+                size_hint:.3,.2
+                text:"Flash"
+                font_size:50
+                background_color:"black"
+        Button:
+            text:"Back"
+            size_hint:.05,.05
+            pos_hint:{"center_x":.05,"center_y":.95}
+            background_color:"black"
+            on_press:
+                root.manager.current = "level"
+                root.manager.transition.direction = "right"
+
+
+
+
+<level1_button@Button>:
+    size_hint:None,None
+    width:dp(40)
+    height:dp(40)
+
+
+<level1_image@Image>:
+    size_hint:None,None
+    widht:dp(40)
+    height:dp(40)
+
+
+
+<phase_2>:
+    FloatLayout:
+        canvas.before:
+
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"mbg.png"
+
+        Button:
+            size_hint:None,None
+            width:dp(20)
+            height:dp(20)
+            background_normal:""
+            background_color:(219/255, 47/255, 47/255, 1)
+
+            pos_hint:{"center_x":.05,"top":.99}
+            on_press:
+                root.manager.current = "marvel"
+                root.manager.transition.direction = "right"
+
+            Image:
+
+                source:"bk.png"
+                size_hint:None,None
+                height:dp(70)
+                width:dp(70)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint:None,None
+            spacing:dp(5)
+            width:dp(50)
+            height:dp(40)
+            pos_hint:{"center_x":.2,"top":1}
+
+
+
+            Label:
+                text:"IQ: "
+                font_size:'18sp'
+                bold:True
+
+
+            Label:
+                id:iq
+                text:""
+                font_size:'17sp'
+
+
+
+        BoxLayout:
+            pos_hint:{"right":.98,"top":1}
+            orientation:"horizontal"
+            size_hint:None,None
+            width:dp(65)
+            height:dp(50)
+
+
+            Image:
+                source:"co.png"
+                size_hint:None,None
+                width:dp(30)
+                height:dp(30)
+                pos_hint:{"right":.97,"top":.95}
+
+            Label:
+                id:coins
+                text:""
+
+                font_size:'18sp'
+                pos_hint:{"right":.96,"center_y":.66}
+
+
+
+        Label:
+            id:level_indi
+
+            size_hint:None,None
+            width:dp(70)
+            height:dp(40)
+            font_size:'18sp'
+            pos_hint:{"center_x":.5,"top":1}
+            background_color:"black"
+            color:"white"
+
+
+        level1_button:
+            id:change
+
+
+            pos_hint:{"center_x":.12,"center_y":.7}
+            on_press:
+
+                root.sasi()
+
+
+
+            Image:
+                id:image
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+
+        level1_button:
+            id:change1
+
+            pos_hint:{"center_x":.27,"center_y":.7}
+            on_press:
+
+                root.sasi1()
+
+            Image:
+                id:image1
+
+                size_hint:None,None
+                width:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change2
+
+            pos_hint:{"center_x":.42,"center_y":.7}
+            on_press:
+
+                root.sasi2()
+
+
+            Image:
+                id:image2
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change3
+
+            pos_hint:{"center_x":.57,"center_y":.7}
+            on_press:
+
+                root.sasi3()
+
+            Image:
+                id:image3
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change4
+
+            pos_hint:{"center_x":.72,"center_y":.7}
+            on_press:
+
+                root.sasi4()
+
+            Image:
+                id:image4
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change5
+
+            pos_hint:{"center_x":.87,"center_y":.7}
+            on_press:
+
+                root.sasi5()
+
+            Image:
+                id:image5
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change6
+
+            pos_hint:{"center_x":.12,"center_y":.62}
+            on_press:
+
+                root.sasi6()
+
+            Image:
+                id:image6
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change7
+
+            pos_hint:{"center_x":.27,"center_y":.62}
+            on_press:
+
+                root.sasi7()
+
+
+            Image:
+                id:image7
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change8
+
+            pos_hint:{"center_x":.42,"center_y":.62}
+            on_press:
+
+                root.sasi8()
+
+            Image:
+                id:image8
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change9
+
+            pos_hint:{"center_x":.57,"center_y":.62}
+            on_press:
+
+                root.sasi9()
+
+            Image:
+                id:image9
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change10
+
+            pos_hint:{"center_x":.72,"center_y":.62}
+            on_press:
+
+                root.sasi10()
+
+            Image:
+                id:image10
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change11
+
+            pos_hint:{"center_x":.87,"center_y":.62}
+            on_press:
+
+                root.sasi11()
+
+            Image:
+
+                id:image11
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change12
+
+            pos_hint:{"center_x":.12,"center_y":.54}
+            on_press:
+
+                root.sasi12()
+
+            Image:
+
+                id:image12
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+        level1_button:
+            id:change13
+
+            pos_hint:{"center_x":.27,"center_y":.54}
+            on_press:
+
+                root.sasi13()
+
+            Image:
+
+                id:image13
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+        level1_button:
+            id:change14
+
+            pos_hint:{"center_x":.42,"center_y":.54}
+            on_press:
+
+                root.sasi14()
+
+            Image:
+
+                id:image14
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        level1_button:
+            id:change15
+
+            pos_hint:{"center_x":.57,"center_y":.54}
+            on_press:
+
+                root.sasi15()
+
+            Image:
+
+                id:image15
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        level1_button:
+            id:change16
+
+            pos_hint:{"center_x":.72,"center_y":.54}
+            on_press:
+
+                root.sasi16()
+
+            Image:
+
+                id:image16
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        level1_button:
+            id:change17
+
+            pos_hint:{"center_x":.87,"center_y":.54}
+            on_press:
+
+                root.sasi17()
+
+            Image:
+                id:image17
+
+
+
+
+                size_hint:None,None
+                widht:dp(40)
+                height:dp(40)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+        level1_image:
+
+
+            id:borbox
+
+
+
+            pos_hint:{"center_x":.2,"center_y":.3}
+
+        level1_image:
+            id:borbox1
+
+
+            pos_hint:{"center_x":.35,"center_y":.3}
+        level1_image:
+            id:borbox2
+
+
+            pos_hint:{"center_x":.5,"center_y":.3}
+        level1_image:
+            id:borbox3
+
+
+            pos_hint:{"center_x":.65,"center_y":.3}
+        level1_image:
+            id:borbox4
+
+
+            pos_hint:{"center_x":.8,"center_y":.3}
+        level1_image:
+            id:borbox5
+
+
+            pos_hint:{"center_x":.2,"center_y":.2}
+        level1_image:
+            id:borbox6
+
+
+            pos_hint:{"center_x":.35,"center_y":.2}
+        level1_image:
+            id:borbox7
+
+
+            pos_hint:{"center_x":.5,"center_y":.2}
+        level1_image:
+            id:borbox8
+
+
+            pos_hint:{"center_x":.65,"center_y":.2}
+        level1_image:
+            id:borbox9
+
+
+            pos_hint:{"center_x":.8,"center_y":.2}
+
+        level1_image:
+            id:borbox10
+
+
+
+            pos_hint:{"center_x":.2,"center_y":.1}
+        level1_image:
+            id:borbox11
+
+
+
+            pos_hint:{"center_x":.35,"center_y":.1}
+        level1_image:
+            id:borbox12
+
+
+
+            pos_hint:{"center_x":.5,"center_y":.1}
+
+        level1_image:
+            id:borbox13
+
+
+
+            pos_hint:{"center_x":.65,"center_y":.1}
+        level1_image:
+            id:borbox14
+
+
+
+            pos_hint:{"center_x":.8,"center_y":.1}
+        Button:
+            id:check
+
+
+            text:"Assemble"
+            font_size:'10sp'
+            size_hint:None,None
+            width:dp(65)
+            disabled:False
+            height:dp(35)
+            pos_hint:{"center_x":.7,"center_y":.42}
+            on_press:
+
+
+                root.winning()
+
+            Image:
+
+
+                source:"assemble.png"
+
+                size_hint:None,None
+                widht:dp(80)
+                height:dp(30)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+        Button:
+            id:hint
+
+
+            text:"Hint"
+            font_size:'10sp'
+            size_hint:None,None
+            width:dp(65)
+            disabled:False
+            height:dp(35)
+            pos_hint:{"center_x":.3,"center_y":.42}
+            on_press:
+
+
+                root.level1_hint()
+            Image:
+
+
+                source:"hint.png"
+
+                size_hint:None,None
+                widht:dp(80)
+                height:dp(30)
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+

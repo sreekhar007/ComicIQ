@@ -1,0 +1,21 @@
+<can>:
+    Button:
+        id: coin
+        text:"bro"
+
+        size_hint:.1,.1
+    FloatLayout:
+        Button:
+            text:"hi"
+            size_hint:.5,.5
+            pos_hint:{"center_x":.5}
+
+
+
+        Widget:
+            Button:
+                pikkaobject:pikka
+                id:pikka
+                text:""
+                pos:root.x + 100,root.y + 100
+                on_press:root.move()
